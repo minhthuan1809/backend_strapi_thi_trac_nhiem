@@ -35,8 +35,12 @@
       "repeatable": false,
       "component": "shared.quick-link"
     },
+    "social_media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-network"
+    },
     "copyright": {
-      "displayName": "copyright",
       "type": "component",
       "repeatable": false,
       "component": "shared.copyright"

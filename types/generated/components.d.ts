@@ -21,6 +21,18 @@ export interface SharedCopyright extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFeaturesSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_features_sections';
+  info: {
+    description: '';
+    displayName: 'features_section';
+  };
+  attributes: {
+    header: Schema.Attribute.String;
+    section_items: Schema.Attribute.Component<'shared.section-items', true>;
+  };
+}
+
 export interface SharedFooter extends Struct.ComponentSchema {
   collectionName: 'components_shared_footers';
   info: {
@@ -33,6 +45,7 @@ export interface SharedFooter extends Struct.ComponentSchema {
     copyright: Schema.Attribute.Component<'shared.copyright', false>;
     header: Schema.Attribute.Component<'shared.header', false>;
     quick_link: Schema.Attribute.Component<'shared.quick-link', false>;
+    social_media: Schema.Attribute.Component<'shared.social-network', true>;
     social_network: Schema.Attribute.Component<'shared.social-network', true>;
   };
 }
@@ -51,11 +64,13 @@ export interface SharedHeader extends Struct.ComponentSchema {
 export interface SharedHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_shared_hero_sections';
   info: {
+    description: '';
     displayName: 'hero_section';
   };
   attributes: {
     content: Schema.Attribute.Text;
     header: Schema.Attribute.Text;
+    icon: Schema.Attribute.String;
     panner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
@@ -143,6 +158,18 @@ export interface SharedRichText extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSectionItems extends Struct.ComponentSchema {
+  collectionName: 'components_shared_section_items';
+  info: {
+    displayName: 'section_items';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    icon: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -185,11 +212,24 @@ export interface SharedSocialNetwork extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedStatisticsSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_statistics_sections';
+  info: {
+    displayName: 'statistics_section';
+  };
+  attributes: {
+    icon: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.contact': SharedContact;
       'shared.copyright': SharedCopyright;
+      'shared.features-section': SharedFeaturesSection;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.hero-section': SharedHeroSection;
@@ -200,9 +240,11 @@ declare module '@strapi/strapi' {
       'shared.quick-link': SharedQuickLink;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
+      'shared.section-items': SharedSectionItems;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
       'shared.social-network': SharedSocialNetwork;
+      'shared.statistics-section': SharedStatisticsSection;
     }
   }
 }
