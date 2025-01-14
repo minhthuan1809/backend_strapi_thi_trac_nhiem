@@ -21,6 +21,34 @@ export interface SharedCopyright extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedDetailExam extends Struct.ComponentSchema {
+  collectionName: 'components_shared_detail_exams';
+  info: {
+    displayName: 'detail_exam';
+  };
+  attributes: {
+    answerA: Schema.Attribute.Text;
+    answerB: Schema.Attribute.Text;
+    answerC: Schema.Attribute.Text;
+    answerD: Schema.Attribute.Text;
+    correct: Schema.Attribute.Text;
+    question: Schema.Attribute.Text;
+  };
+}
+
+export interface SharedExam extends Struct.ComponentSchema {
+  collectionName: 'components_shared_exams';
+  info: {
+    displayName: 'exam';
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    detail_exam: Schema.Attribute.Component<'shared.detail-exam', true>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedFeaturesSection extends Struct.ComponentSchema {
   collectionName: 'components_shared_features_sections';
   info: {
@@ -82,6 +110,27 @@ export interface SharedInformation extends Struct.ComponentSchema {
   attributes: {
     content: Schema.Attribute.Text;
     label: Schema.Attribute.String;
+  };
+}
+
+export interface SharedInformationUser extends Struct.ComponentSchema {
+  collectionName: 'components_shared_information_users';
+  info: {
+    description: '';
+    displayName: 'information_user';
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    class: Schema.Attribute.String;
+    data: Schema.Attribute.Date;
+    email: Schema.Attribute.String;
+    fullname: Schema.Attribute.String;
+    gender: Schema.Attribute.Enumeration<['Nam', 'N\u1EEF', '(kh\u00E1c)']>;
+    lock: Schema.Attribute.String;
+    msv: Schema.Attribute.String;
+    nationality: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    study: Schema.Attribute.String;
   };
 }
 
@@ -228,11 +277,14 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'shared.contact': SharedContact;
       'shared.copyright': SharedCopyright;
+      'shared.detail-exam': SharedDetailExam;
+      'shared.exam': SharedExam;
       'shared.features-section': SharedFeaturesSection;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.hero-section': SharedHeroSection;
       'shared.information': SharedInformation;
+      'shared.information-user': SharedInformationUser;
       'shared.items': SharedItems;
       'shared.media': SharedMedia;
       'shared.navbar-items-left': SharedNavbarItemsLeft;

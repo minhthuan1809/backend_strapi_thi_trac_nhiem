@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_exams",
+  "info": {
+    "displayName": "exam"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "detail_exam": {
+      "displayName": "detail_exam",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.detail-exam"
+    }
+  }
+}

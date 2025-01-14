@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_shared_information_users",
+  "info": {
+    "displayName": "information_user",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "msv": {
+      "type": "string"
+    },
+    "fullname": {
+      "type": "string"
+    },
+    "data": {
+      "type": "date"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "Nam",
+        "Nữ",
+        "(khác)"
+      ]
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string"
+    },
+    "study": {
+      "type": "string"
+    },
+    "lock": {
+      "type": "string"
+    }
+  }
+}

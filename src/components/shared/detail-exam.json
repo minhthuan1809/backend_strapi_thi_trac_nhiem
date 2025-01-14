@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_detail_exams",
+  "info": {
+    "displayName": "detail_exam"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "answerA": {
+      "type": "text"
+    },
+    "answerB": {
+      "type": "text"
+    },
+    "answerC": {
+      "type": "text"
+    },
+    "answerD": {
+      "type": "text"
+    },
+    "correct": {
+      "type": "text"
+    }
+  }
+}

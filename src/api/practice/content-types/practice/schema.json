@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "practices",
+  "info": {
+    "singularName": "practice",
+    "pluralName": "practices",
+    "displayName": "Practice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "exam": {
+      "displayName": "exam",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.exam"
+    }
+  }
+}
