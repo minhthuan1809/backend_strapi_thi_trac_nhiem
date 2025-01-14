@@ -12,12 +12,6 @@
       "repeatable": false,
       "component": "shared.header"
     },
-    "social_network": {
-      "displayName": "social_network",
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.social-network"
-    },
     "contactOne": {
       "displayName": "Contact",
       "type": "component",

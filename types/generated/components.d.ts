@@ -46,7 +46,6 @@ export interface SharedFooter extends Struct.ComponentSchema {
     header: Schema.Attribute.Component<'shared.header', false>;
     quick_link: Schema.Attribute.Component<'shared.quick-link', false>;
     social_media: Schema.Attribute.Component<'shared.social-network', true>;
-    social_network: Schema.Attribute.Component<'shared.social-network', true>;
   };
 }
 
