@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_questions",
+  "info": {
+    "displayName": "question",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "answerA": {
+      "type": "text"
+    },
+    "answerB": {
+      "type": "text"
+    },
+    "answerC": {
+      "type": "text"
+    },
+    "answerD": {
+      "type": "text"
+    },
+    "results": {
+      "type": "text"
+    }
+  }
+}

@@ -569,7 +569,8 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
 export interface ApiPracticePractice extends Struct.SingleTypeSchema {
   collectionName: 'practices';
   info: {
-    displayName: 'Practice';
+    description: '';
+    displayName: '/practice';
     pluralName: 'practices';
     singularName: 'practice';
   };

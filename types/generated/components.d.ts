@@ -24,27 +24,23 @@ export interface SharedCopyright extends Struct.ComponentSchema {
 export interface SharedDetailExam extends Struct.ComponentSchema {
   collectionName: 'components_shared_detail_exams';
   info: {
+    description: '';
     displayName: 'detail_exam';
   };
-  attributes: {
-    answerA: Schema.Attribute.Text;
-    answerB: Schema.Attribute.Text;
-    answerC: Schema.Attribute.Text;
-    answerD: Schema.Attribute.Text;
-    correct: Schema.Attribute.Text;
-    question: Schema.Attribute.Text;
-  };
+  attributes: {};
 }
 
 export interface SharedExam extends Struct.ComponentSchema {
   collectionName: 'components_shared_exams';
   info: {
+    description: '';
     displayName: 'exam';
   };
   attributes: {
     content: Schema.Attribute.Text;
-    detail_exam: Schema.Attribute.Component<'shared.detail-exam', true>;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    question: Schema.Attribute.Component<'shared.question', true>;
+    status_try: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
   };
 }
@@ -168,6 +164,34 @@ export interface SharedNavbarItemsLeft extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedProvider extends Struct.ComponentSchema {
+  collectionName: 'components_shared_providers';
+  info: {
+    description: '';
+    displayName: 'provider';
+  };
+  attributes: {
+    name: Schema.Attribute.Text;
+    question: Schema.Attribute.Component<'shared.question', true>;
+  };
+}
+
+export interface SharedQuestion extends Struct.ComponentSchema {
+  collectionName: 'components_shared_questions';
+  info: {
+    description: '';
+    displayName: 'question';
+  };
+  attributes: {
+    answerA: Schema.Attribute.Text;
+    answerB: Schema.Attribute.Text;
+    answerC: Schema.Attribute.Text;
+    answerD: Schema.Attribute.Text;
+    question: Schema.Attribute.Text;
+    results: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedQuickLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_quick_links';
   info: {
@@ -272,6 +296,19 @@ export interface SharedStatisticsSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSubject extends Struct.ComponentSchema {
+  collectionName: 'components_shared_subjects';
+  info: {
+    displayName: 'subject';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.Text;
+    status_try: Schema.Attribute.Boolean;
+    title: Schema.Attribute.Text;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -288,6 +325,8 @@ declare module '@strapi/strapi' {
       'shared.items': SharedItems;
       'shared.media': SharedMedia;
       'shared.navbar-items-left': SharedNavbarItemsLeft;
+      'shared.provider': SharedProvider;
+      'shared.question': SharedQuestion;
       'shared.quick-link': SharedQuickLink;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
@@ -296,6 +335,7 @@ declare module '@strapi/strapi' {
       'shared.slider': SharedSlider;
       'shared.social-network': SharedSocialNetwork;
       'shared.statistics-section': SharedStatisticsSection;
+      'shared.subject': SharedSubject;
     }
   }
 }

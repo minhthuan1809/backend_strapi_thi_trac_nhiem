@@ -4,7 +4,8 @@
   "info": {
     "singularName": "practice",
     "pluralName": "practices",
-    "displayName": "Practice"
+    "displayName": "/practice",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

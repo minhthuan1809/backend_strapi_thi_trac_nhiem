@@ -1,19 +1,21 @@
 {
   "collectionName": "components_shared_exams",
   "info": {
-    "displayName": "exam"
+    "displayName": "exam",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "title": {
       "type": "string"
@@ -21,11 +23,13 @@
     "content": {
       "type": "text"
     },
-    "detail_exam": {
-      "displayName": "detail_exam",
+    "status_try": {
+      "type": "boolean"
+    },
+    "question": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.detail-exam"
+      "component": "shared.question"
     }
   }
 }
