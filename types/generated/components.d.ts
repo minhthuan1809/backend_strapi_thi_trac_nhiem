@@ -130,14 +130,6 @@ export interface SharedInformationUser extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedItems extends Struct.ComponentSchema {
-  collectionName: 'components_shared_items';
-  info: {
-    displayName: 'items';
-  };
-  attributes: {};
-}
-
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -183,12 +175,12 @@ export interface SharedQuestion extends Struct.ComponentSchema {
     displayName: 'question';
   };
   attributes: {
-    answerA: Schema.Attribute.Text;
-    answerB: Schema.Attribute.Text;
-    answerC: Schema.Attribute.Text;
+    answerA: Schema.Attribute.Text & Schema.Attribute.Required;
+    answerB: Schema.Attribute.Text & Schema.Attribute.Required;
+    answerC: Schema.Attribute.Text & Schema.Attribute.Required;
     answerD: Schema.Attribute.Text;
-    question: Schema.Attribute.Text;
-    results: Schema.Attribute.Text;
+    question: Schema.Attribute.Text & Schema.Attribute.Required;
+    results: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -322,7 +314,6 @@ declare module '@strapi/strapi' {
       'shared.hero-section': SharedHeroSection;
       'shared.information': SharedInformation;
       'shared.information-user': SharedInformationUser;
-      'shared.items': SharedItems;
       'shared.media': SharedMedia;
       'shared.navbar-items-left': SharedNavbarItemsLeft;
       'shared.provider': SharedProvider;

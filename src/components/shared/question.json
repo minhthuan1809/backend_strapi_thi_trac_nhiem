@@ -7,22 +7,28 @@
   "options": {},
   "attributes": {
     "question": {
-      "type": "text"
+      "type": "text",
+      "required": true,
+      "filterable": true
     },
     "answerA": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "answerB": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "answerC": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "answerD": {
       "type": "text"
     },
     "results": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   }
 }
