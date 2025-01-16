@@ -1,5 +1,5 @@
-import type { StrapiApp } from '@strapi/strapi/admin';
-
+import type { StrapiApp } from "@strapi/strapi/admin";
+// anh
 export default {
   config: {
     locales: [
