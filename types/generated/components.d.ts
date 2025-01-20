@@ -178,8 +178,10 @@ export interface SharedQuestion extends Struct.ComponentSchema {
     answerA: Schema.Attribute.Text & Schema.Attribute.Required;
     answerB: Schema.Attribute.Text & Schema.Attribute.Required;
     answerC: Schema.Attribute.Text & Schema.Attribute.Required;
-    answerD: Schema.Attribute.Text;
-    question: Schema.Attribute.Text & Schema.Attribute.Required;
+    answerD: Schema.Attribute.Text & Schema.Attribute.Required;
+    question: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     results: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }

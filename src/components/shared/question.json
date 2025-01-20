@@ -9,7 +9,8 @@
     "question": {
       "type": "text",
       "required": true,
-      "filterable": true
+      "filterable": true,
+      "unique": true
     },
     "answerA": {
       "type": "text",
@@ -24,7 +25,8 @@
       "required": true
     },
     "answerD": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "results": {
       "type": "text",
