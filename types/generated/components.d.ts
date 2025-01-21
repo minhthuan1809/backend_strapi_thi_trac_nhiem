@@ -21,15 +21,6 @@ export interface SharedCopyright extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedDetailExam extends Struct.ComponentSchema {
-  collectionName: 'components_shared_detail_exams';
-  info: {
-    description: '';
-    displayName: 'detail_exam';
-  };
-  attributes: {};
-}
-
 export interface SharedExam extends Struct.ComponentSchema {
   collectionName: 'components_shared_exams';
   info: {
@@ -38,10 +29,35 @@ export interface SharedExam extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
     question: Schema.Attribute.Component<'shared.question', true>;
+    status_try: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedExamStudent extends Struct.ComponentSchema {
+  collectionName: 'components_shared_exam_students';
+  info: {
+    description: '';
+    displayName: 'exam_student';
+  };
+  attributes: {
+    class: Schema.Attribute.String & Schema.Attribute.Required;
+    duration: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'9000'>;
+    exam_day: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    lecturer: Schema.Attribute.String & Schema.Attribute.Required;
+    point: Schema.Attribute.String & Schema.Attribute.Required;
+    question: Schema.Attribute.Component<'shared.question', true>;
+    see_exam_results: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
     status_try: Schema.Attribute.Boolean;
-    title: Schema.Attribute.String;
+    subject: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -308,8 +324,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'shared.contact': SharedContact;
       'shared.copyright': SharedCopyright;
-      'shared.detail-exam': SharedDetailExam;
       'shared.exam': SharedExam;
+      'shared.exam-student': SharedExamStudent;
       'shared.features-section': SharedFeaturesSection;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;

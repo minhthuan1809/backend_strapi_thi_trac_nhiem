@@ -65,13 +65,6 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "role_user": {
-      "type": "enumeration",
-      "enum": [
-        "student",
-        "lecturer"
-      ]
-    },
     "information_user": {
       "type": "component",
       "repeatable": false,

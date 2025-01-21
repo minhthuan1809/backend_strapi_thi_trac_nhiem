@@ -9,7 +9,7 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -18,13 +18,16 @@
       ]
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "content": {
       "type": "text"
     },
     "status_try": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": false
     },
     "question": {
       "type": "component",
