@@ -4,14 +4,18 @@
   "info": {
     "singularName": "teacher",
     "pluralName": "teachers",
-    "displayName": "teacher"
+    "displayName": "teacher",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "question": {
+    "mgv": {
+      "type": "string"
+    },
+    "fullname": {
       "type": "string"
     }
   }

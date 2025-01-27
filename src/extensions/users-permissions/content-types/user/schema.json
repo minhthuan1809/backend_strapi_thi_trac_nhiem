@@ -65,10 +65,11 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "information_user": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.information-user"
+    "students": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::student.student",
+      "mappedBy": "user"
     }
   }
 }

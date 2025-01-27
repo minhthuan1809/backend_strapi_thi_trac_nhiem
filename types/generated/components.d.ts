@@ -125,6 +125,17 @@ export interface SharedInformation extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedInformationTeacher extends Struct.ComponentSchema {
+  collectionName: 'components_shared_information_teachers';
+  info: {
+    displayName: 'information_teacher';
+  };
+  attributes: {
+    fullname: Schema.Attribute.String;
+    mgv: Schema.Attribute.String;
+  };
+}
+
 export interface SharedInformationUser extends Struct.ComponentSchema {
   collectionName: 'components_shared_information_users';
   info: {
@@ -132,15 +143,11 @@ export interface SharedInformationUser extends Struct.ComponentSchema {
     displayName: 'information_user';
   };
   attributes: {
-    address: Schema.Attribute.String;
     class: Schema.Attribute.String;
-    data: Schema.Attribute.Date;
     email: Schema.Attribute.String;
     fullname: Schema.Attribute.String;
-    gender: Schema.Attribute.Enumeration<['Nam', 'N\u1EEF', '(kh\u00E1c)']>;
     lock: Schema.Attribute.String;
-    msv: Schema.Attribute.String;
-    nationality: Schema.Attribute.String;
+    ma: Schema.Attribute.String;
     phone: Schema.Attribute.String;
     study: Schema.Attribute.String;
   };
@@ -331,6 +338,7 @@ declare module '@strapi/strapi' {
       'shared.header': SharedHeader;
       'shared.hero-section': SharedHeroSection;
       'shared.information': SharedInformation;
+      'shared.information-teacher': SharedInformationTeacher;
       'shared.information-user': SharedInformationUser;
       'shared.media': SharedMedia;
       'shared.navbar-items-left': SharedNavbarItemsLeft;

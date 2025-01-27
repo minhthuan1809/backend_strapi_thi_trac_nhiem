@@ -6,27 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "msv": {
+    "ma": {
       "type": "string"
     },
     "fullname": {
-      "type": "string"
-    },
-    "data": {
-      "type": "date"
-    },
-    "gender": {
-      "type": "enumeration",
-      "enum": [
-        "Nam",
-        "Nữ",
-        "(khác)"
-      ]
-    },
-    "nationality": {
-      "type": "string"
-    },
-    "address": {
       "type": "string"
     },
     "phone": {
