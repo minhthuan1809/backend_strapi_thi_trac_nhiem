@@ -6,16 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "ma": {
-      "type": "string"
-    },
-    "fullname": {
-      "type": "string"
-    },
-    "phone": {
-      "type": "string"
-    },
-    "email": {
+    "mav": {
       "type": "string"
     },
     "class": {

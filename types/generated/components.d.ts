@@ -128,10 +128,10 @@ export interface SharedInformation extends Struct.ComponentSchema {
 export interface SharedInformationTeacher extends Struct.ComponentSchema {
   collectionName: 'components_shared_information_teachers';
   info: {
+    description: '';
     displayName: 'information_teacher';
   };
   attributes: {
-    fullname: Schema.Attribute.String;
     mgv: Schema.Attribute.String;
   };
 }
@@ -144,11 +144,8 @@ export interface SharedInformationUser extends Struct.ComponentSchema {
   };
   attributes: {
     class: Schema.Attribute.String;
-    email: Schema.Attribute.String;
-    fullname: Schema.Attribute.String;
     lock: Schema.Attribute.String;
-    ma: Schema.Attribute.String;
-    phone: Schema.Attribute.String;
+    mav: Schema.Attribute.String;
     study: Schema.Attribute.String;
   };
 }

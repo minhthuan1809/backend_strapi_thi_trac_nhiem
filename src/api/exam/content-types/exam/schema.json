@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "exams",
   "info": {
     "singularName": "exam",
     "pluralName": "exams",
-    "displayName": "/exam",
+    "displayName": "exam",
     "description": ""
   },
   "options": {
@@ -12,11 +12,46 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "exam_student": {
-      "displayName": "exam_student",
+    "class": {
+      "type": "string",
+      "required": true
+    },
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "lecturer": {
+      "type": "string",
+      "required": true
+    },
+    "exam_day": {
+      "type": "datetime"
+    },
+    "point": {
+      "type": "string",
+      "default": "10",
+      "required": true
+    },
+    "duration": {
+      "type": "string",
+      "required": true,
+      "default": "9000"
+    },
+    "question": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.exam-student"
+      "component": "shared.question"
+    },
+    "see_exam_results": {
+      "type": "boolean",
+      "default": true
+    },
+    "status_exam": {
+      "type": "boolean",
+      "default": false
+    },
+    "day_close": {
+      "type": "datetime"
     }
   }
 }

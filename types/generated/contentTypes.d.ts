@@ -502,11 +502,11 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiExamExam extends Struct.SingleTypeSchema {
+export interface ApiExamExam extends Struct.CollectionTypeSchema {
   collectionName: 'exams';
   info: {
     description: '';
-    displayName: '/exam';
+    displayName: 'exam';
     pluralName: 'exams';
     singularName: 'exam';
   };
@@ -514,14 +514,28 @@ export interface ApiExamExam extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    class: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    exam_student: Schema.Attribute.Component<'shared.exam-student', true>;
+    day_close: Schema.Attribute.DateTime;
+    duration: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'9000'>;
+    exam_day: Schema.Attribute.DateTime;
+    lecturer: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::exam.exam'> &
       Schema.Attribute.Private;
+    point: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'10'>;
     publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.Component<'shared.question', true>;
+    see_exam_results: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    status_exam: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    subject: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -614,74 +628,6 @@ export interface ApiPracticePractice extends Struct.SingleTypeSchema {
       'api::practice.practice'
     > &
       Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
-  collectionName: 'students';
-  info: {
-    description: '';
-    displayName: 'student';
-    pluralName: 'students';
-    singularName: 'student';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    class: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    fullname: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::student.student'
-    > &
-      Schema.Attribute.Private;
-    lock: Schema.Attribute.String;
-    msv: Schema.Attribute.String;
-    phone: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    study: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    user: Schema.Attribute.Relation<
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
-  };
-}
-
-export interface ApiTeacherTeacher extends Struct.CollectionTypeSchema {
-  collectionName: 'teachers';
-  info: {
-    description: '';
-    displayName: 'teacher';
-    pluralName: 'teachers';
-    singularName: 'teacher';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    fullname: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::teacher.teacher'
-    > &
-      Schema.Attribute.Private;
-    mgv: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1157,6 +1103,14 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    information_teacher: Schema.Attribute.Component<
+      'shared.information-teacher',
+      false
+    >;
+    information_user: Schema.Attribute.Component<
+      'shared.information-user',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1175,7 +1129,7 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    students: Schema.Attribute.Relation<'oneToMany', 'api::student.student'>;
+    role_user: Schema.Attribute.Enumeration<['students', 'lecturer']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1206,8 +1160,6 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::practice.practice': ApiPracticePractice;
-      'api::student.student': ApiStudentStudent;
-      'api::teacher.teacher': ApiTeacherTeacher;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

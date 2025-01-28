@@ -65,11 +65,22 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "students": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::student.student",
-      "mappedBy": "user"
+    "role_user": {
+      "type": "enumeration",
+      "enum": [
+        "students",
+        "lecturer"
+      ]
+    },
+    "information_user": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.information-user"
+    },
+    "information_teacher": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.information-teacher"
     }
   }
 }
