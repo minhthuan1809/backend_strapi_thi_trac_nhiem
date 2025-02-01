@@ -47,19 +47,18 @@ export default factories.createCoreController('api::exam.exam', ({strapi}) => ({
       if (!exam) {
         return {
             ok: false,
-            message: 'Exam not found'
+            message: 'Không tìm thấy bài thi'
         };
       }
 
       return { 
         ok: true,
         data: exam,
-        meta: {
-          status: 'success'
-        }
+        message: 'Bài thi đã được tìm thấy thành công',
+    
       };
     } catch (err) {
-      return ctx.badRequest('Error finding exam: ' + err.message);
+      return ctx.badRequest('Lỗi khi tìm kiếm bài thi: ' + err.message);
     }
   },
 
@@ -89,21 +88,20 @@ export default factories.createCoreController('api::exam.exam', ({strapi}) => ({
       if (!result) {
         return {
           ok: false,
-          message: 'Could not update exam'
+          message: 'Không thể cập nhật bài thi'
         };
       }
 
       return {
         ok: true,
         data: result,
-        meta: {
-          status: 'success'
-        }
+        message: 'Bài thi đã được cập nhật thành công !',
+       
       };
     } catch (err) {
       return {
         ok: false,
-        message: 'Error updating exam: ' + err.message
+        message: 'Lỗi khi cập nhật bài thi: ' + err.message
       };
     }
   },
@@ -119,14 +117,14 @@ export default factories.createCoreController('api::exam.exam', ({strapi}) => ({
         return {
           ok: true,
           data: result,
-          message: 'Exam deleted successfully'
+          message: 'Bài thi đã được xóa thành công !'
         };
       }
 
      catch (err) {
       return {
         ok: false,
-        message: err.message
+        message: 'Lỗi khi xóa bài thi: ' + err.message
       };
     
   }},

@@ -71,15 +71,26 @@ export default {
       },
     },
     // // thêm câu hỏi
-    // {
-    //   method: "POST",
-    //   path: "/exams/:id/questions",
-    //   handler: "api::exam.exam.addQuestion",
-    //   config: {
-    //     auth: false,
-    //     policies: [],
-    //     middlewares: [],
-    //   },
-    // },
+    {
+      method: "POST", 
+      path: "/exams/:id/questions",
+      handler: "api::exam.examquestion.addQuestion",
+      config: {
+        auth: false,
+        policies: [],
+        middlewares: [],
+      },
+    },
+    // chỉnh sửa câu hỏi
+    {
+      method: "PUT",
+      path: "/exams/:id/questions/:questionId",
+      handler: "api::exam.examquestion.editQuestion",
+      config: {
+        auth: false,
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };
