@@ -1,7 +1,11 @@
 /**
+ *  about controller
+ */
+
+/**
  * practice controller
  */
 
-import { factories } from '@strapi/strapi'
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreController('api::practice.practice');
+export default factories.createCoreController("api::practice.practice");
