@@ -13,7 +13,11 @@ export default factories.createCoreController('api::exam.exam', ({strapi}) => ({
       const result = await strapi.entityService.create('api::exam.exam', {
         data: data
       });
-      return { data: result };
+      return { 
+        ok: true,
+        data: result,
+        message: 'Bài thi đã được tạo thành công !',
+       };
     } catch (err) {
       ctx.throw(500, err);
     }
