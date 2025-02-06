@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "practices",
   "info": {
     "singularName": "practice",
     "pluralName": "practices",
-    "displayName": "/practice",
+    "displayName": "practice",
     "description": ""
   },
   "options": {
@@ -12,11 +12,28 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "exam": {
-      "displayName": "exam",
+    "subject": {
+      "type": "string"
+    },
+    "point": {
+      "type": "string",
+      "default": "10"
+    },
+    "duration": {
+      "type": "string",
+      "default": "900"
+    },
+    "status_exam": {
+      "type": "boolean",
+      "default": false
+    },
+    "question": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.exam"
+      "component": "shared.question"
+    },
+    "lecturer": {
+      "type": "string"
     }
   }
 }

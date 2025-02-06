@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedAnswer extends Struct.ComponentSchema {
+  collectionName: 'components_shared_answers';
+  info: {
+    description: '';
+    displayName: 'answer';
+  };
+  attributes: {
+    answer_user: Schema.Attribute.Enumeration<['A', 'B', 'C', 'D']>;
+    questions: Schema.Attribute.String;
+    results: Schema.Attribute.Enumeration<['A', 'B', 'C', 'D']>;
+  };
+}
+
 export interface SharedContact extends Struct.ComponentSchema {
   collectionName: 'components_shared_contacts';
   info: {
@@ -202,7 +215,7 @@ export interface SharedQuestion extends Struct.ComponentSchema {
     question: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    results: Schema.Attribute.Text & Schema.Attribute.Required;
+    results: Schema.Attribute.Enumeration<['A', 'B', 'C', 'D']>;
   };
 }
 
@@ -326,6 +339,7 @@ export interface SharedSubject extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.answer': SharedAnswer;
       'shared.contact': SharedContact;
       'shared.copyright': SharedCopyright;
       'shared.exam': SharedExam;

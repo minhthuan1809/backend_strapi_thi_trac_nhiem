@@ -29,8 +29,13 @@
       "required": true
     },
     "results": {
-      "type": "text",
-      "required": true
+      "type": "enumeration",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
     }
   }
 }
