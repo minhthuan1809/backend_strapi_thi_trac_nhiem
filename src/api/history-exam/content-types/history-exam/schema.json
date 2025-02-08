@@ -34,6 +34,15 @@
     },
     "mgv": {
       "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "exam_day": {
+      "type": "datetime"
+    },
+    "point": {
+      "type": "string"
     }
   }
 }

@@ -517,6 +517,8 @@ export interface ApiHistoryExamHistoryExam extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    duration: Schema.Attribute.String;
+    exam_day: Schema.Attribute.DateTime;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -526,6 +528,7 @@ export interface ApiHistoryExamHistoryExam extends Struct.CollectionTypeSchema {
     mgv: Schema.Attribute.String;
     msv: Schema.Attribute.String;
     namelecturer: Schema.Attribute.String;
+    point: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     subject: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
