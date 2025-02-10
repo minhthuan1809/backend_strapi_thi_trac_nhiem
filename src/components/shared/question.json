@@ -10,7 +10,7 @@
       "type": "text",
       "required": true,
       "filterable": true,
-      "unique": true
+      "unique": false
     },
     "answerA": {
       "type": "text",

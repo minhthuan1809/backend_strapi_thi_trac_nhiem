@@ -212,9 +212,7 @@ export interface SharedQuestion extends Struct.ComponentSchema {
     answerB: Schema.Attribute.Text & Schema.Attribute.Required;
     answerC: Schema.Attribute.Text & Schema.Attribute.Required;
     answerD: Schema.Attribute.Text & Schema.Attribute.Required;
-    question: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    question: Schema.Attribute.Text & Schema.Attribute.Required;
     results: Schema.Attribute.Enumeration<['A', 'B', 'C', 'D']>;
   };
 }
@@ -284,18 +282,6 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
-  info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
-  };
-  attributes: {
-    files: Schema.Attribute.Media<'images', true>;
-  };
-}
-
 export interface SharedSocialNetwork extends Struct.ComponentSchema {
   collectionName: 'components_shared_social_networks';
   info: {
@@ -360,7 +346,6 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.section-items': SharedSectionItems;
       'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
       'shared.social-network': SharedSocialNetwork;
       'shared.statistics-section': SharedStatisticsSection;
       'shared.subject': SharedSubject;
